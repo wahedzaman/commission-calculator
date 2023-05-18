@@ -41,7 +41,6 @@ class WithdrawCommissionCalculationServiceImpl implements CommissionCalculationI
             if ($this->currencyExchangeService->currencyNeedsExchange($transaction->operation_currency)) {
                 $commission = $this->currencyExchangeService->fromEuroToOther($commission, $transaction->operation_currency);
             }
-
             return $commission;
         } else {
             return $euroValue * (AppConfig::getWithdrawFeeForPrivateClient() / 100);
