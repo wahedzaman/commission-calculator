@@ -32,7 +32,7 @@ class WithdrawCommissionCalculationServiceImpl implements CommissionCalculationI
         if ($transaction->user_type === UserType::private->name) {
             if (isset($this->transactionRecords[$transaction->user_id]) && $this->dateUtility->isFromSameWeek($transaction->operation_date, $this->transactionRecords[$transaction->user_id]['last_txn_date'])) {
                 $this->transactionRecords[$transaction->user_id]['last_txn_date'] = $transaction->operation_date;
-                $this->transactionRecords[$transaction->user_id]['txn_count'];
+                $this->transactionRecords[$transaction->user_id]['txn_count']++;
                 $this->transactionRecords[$transaction->user_id]['last_amount'] = $euroValue;
             } else {
                 $this->transactionRecords[$transaction->user_id] = ['last_txn_date' => $transaction->operation_date, 'txn_count' => 1, 'total_amount' => 0, 'last_amount' => $euroValue];
