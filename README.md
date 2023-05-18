@@ -11,9 +11,11 @@ Commission Calculator is a light weight application written in pure PHP, that ac
 
 # Prerequisites:
 - Clone this project to your local machine/download the zip file and unzip
-- PHP 8.1 or above needs to be installed 
+- Project is tested on a machine with PHP version  8.2.1, however it should run fine on a any machine with php version 8.1 and above.
 - composer needs to be installed 
 - Download composer [Composer Website](https://getcomposer.org) from here if not installed.
+- Example csv is expected to be sorted by date 
+- Broken records in csv are not handled
 
 
 # To Run the Project
@@ -61,6 +63,3 @@ vendor/phpunit/phpunit/phpunit --testdox tests
 ```sh
 composer dump-autoload -o
 ```
-- Project is tested on a machine with PHP version  8.2.1, however it should run fine on a any machine with php version 8.1 and above.
-- Example csv is expected to be sorted by date 
-- Broken records in csv are not handled
