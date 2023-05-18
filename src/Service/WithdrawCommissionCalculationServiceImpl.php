@@ -38,7 +38,7 @@ class WithdrawCommissionCalculationServiceImpl implements CommissionCalculationI
                 $this->transactionRecords[$transaction->user_id] = ['last_txn_date' => $transaction->operation_date, 'txn_count' => 1, 'total_amount' => 0, 'last_amount' => $euroValue];
             }
             $commission = $this->getCommissionableAmount($this->transactionRecords[$transaction->user_id]);
-            if ($transaction->operation_currency !== 'EUR') {
+            if ($this->currencyExchangeService->currencyNeedsExchange($transaction->operation_currency)) {
                 $commission = $this->currencyExchangeService->fromEuroToOther($commission, $transaction->operation_currency);
             }
 
